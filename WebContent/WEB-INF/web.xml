@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>TPC</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>start</servlet-name>
+    <servlet-class>tpc.start</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>start</servlet-name>
+    <url-pattern>/clogin.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Recruiter</servlet-name>
+    <servlet-class>tpc.Recruiter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Recruiter</servlet-name>
+    <url-pattern>/csignup.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>signupintern</display-name>
+    <servlet-name>signupintern</servlet-name>
+    <servlet-class>tpc.signup</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signupintern</servlet-name>
+    <url-pattern>/signupintern</url-pattern>
+  </servlet-mapping>
+</web-app>
+<!-- <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file> -->
