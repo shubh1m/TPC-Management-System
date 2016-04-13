@@ -46,29 +46,29 @@ class Recruiter{
 }
 
 class ForJob extends Recruiter{
-	float BaseSalary;
+	float baseSalary;
 	float minCPI;
-	String BranchPreffered;
-	String DateOfVisit;
+	String branchPreffered;
+	String dateOfVisit;
 	
-	void setBaseSalary(float BaseSalary){
-		this.BaseSalary = BaseSalary;
+	void setBaseSalary(float baseSalary){
+		this.baseSalary = baseSalary;
 	}
 	
 	void setMinCPI(float minCPI){
 		this.minCPI = minCPI;
 	}
 	
-	void setBranchPrefferd(String BranchPrefferd){
-		this.BranchPreffered = BranchPrefferd; 
+	void setBranchPrefferd(String branchPrefferd){
+		this.branchPreffered = branchPrefferd; 
 	}
 	
-	void setDateOfVisit(String DateOfVisit){
-		this.DateOfVisit = DateOfVisit;
+	void setDateOfVisit(String dateOfVisit){
+		this.dateOfVisit = dateOfVisit;
 	}
 	
 	float getBaseSalary(){
-		return this.BaseSalary;
+		return this.baseSalary;
 	}
 	
 	float getMinCPI(){
@@ -76,49 +76,49 @@ class ForJob extends Recruiter{
 	}
 	
 	String getBranchPrefferd(){
-		return this.BranchPreffered;
+		return this.branchPreffered;
 	}
 	
 	String getDateOfVisit(){
-		return this.DateOfVisit;
+		return this.dateOfVisit;
 	}
 }
 
 class ForIntern extends Recruiter{
-	String Domain;
-	int Stipend;
-	String YearPreffered;
-	String LinkToWebsite;
+	String domain;
+	int stipend;
+	String yearPreffered;
+	String linkToWebsite;
 	
-	void setDomain(String Domain){
-		this.Domain = Domain;
+	void setDomain(String domain){
+		this.domain = domain;
 	}
 	
-	void setStipend(int Stipend){
-		this.Stipend = Stipend;
+	void setStipend(int stipend){
+		this.stipend = stipend;
 	}
 	
-	void setYearPreffered(String YearPreffered){
-		this.YearPreffered = YearPreffered;
+	void setYearPreffered(String yearPreffered){
+		this.yearPreffered = yearPreffered;
 	}
 	
-	void LinkToWebsite(String LinkToWebsite){
-		this.LinkToWebsite = LinkToWebsite;
+	void setLinkToWebsite(String linkToWebsite){
+		this.linkToWebsite = linkToWebsite;
 	}
 	
 	String getDomain(){
-		return this.Domain;
+		return this.domain;
 	}
 	
 	int getStipend(){
-		return this.Stipend;
+		return this.stipend;
 	}
 	
 	String getYearPreffered(){
-		return this.YearPreffered;
+		return this.yearPreffered;
 	}
 	
 	String getLinkToWebsite(){
-		return this.LinkToWebsite;
+		return this.linkToWebsite;
 	}
 }

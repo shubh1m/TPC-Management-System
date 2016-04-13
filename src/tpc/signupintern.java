@@ -28,21 +28,21 @@ public class signupintern extends HttpServlet {
 		String iid = request.getParameter("iuserid");
 		String iemail = request.getParameter("iemail");
 		String iphone = request.getParameter("iphone");
-		float idomain = request.getParameter("idomain");
-		float istipend = Float.parseFloat(request.getParameter("istipend"));
+		String idomain = request.getParameter("idomain");
+		int istipend = Integer.parseInt(request.getParameter("istipend"));
 		String iyear = request.getParameter("iyear");
 		String ilink = request.getParameter("ilink");
 		String ipasswd = request.getParameter("passwd");
-		ForIntern recj = new ForIntern();
-		recj.setName(jname);
-		recj.setUserID(jid);
-		recj.setEmail(jemail);
-		recj.setPhone(jphone);
-		recj.setBaseSalary(jsalary);
-		recj.setMinCPI(jmincpi);
-		recj.setBranchPrefferd(jbranch);
-		recj.setDateOfVisit(jdov);
-		recj.setPassword(jpasswd);
-		Login.main(recj);
+		ForIntern reci = new ForIntern();
+		reci.setName(iname);
+		reci.setUserID(iid);
+		reci.setEmail(iemail);
+		reci.setPhone(iphone);
+		reci.setDomain(idomain);
+		reci.setStipend(istipend);
+		reci.setYearPreffered(iyear);
+		reci.setLinkToWebsite(ilink);
+		reci.setPassword(ipasswd);
+	//	Login.main(recj);
 	}
 }

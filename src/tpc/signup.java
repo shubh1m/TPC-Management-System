@@ -43,6 +43,6 @@ public class signup extends HttpServlet {
 		recj.setBranchPrefferd(jbranch);
 		recj.setDateOfVisit(jdov);
 		recj.setPassword(jpasswd);
-		Login.main(recj);
+		Login_Job.main(recj);
 	}
 }

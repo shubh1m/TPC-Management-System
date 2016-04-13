@@ -8,7 +8,8 @@
 </head>
 <body>
 	<form method="post" action="clogin.jsp">
-		Login if you are recruiter
+		Login
+		<br/><br/>
 		Username: <input name="username" type="text"/><br/>
 		Password: <input name="password" type="password"/><br/>
 		<input type="submit"/>
