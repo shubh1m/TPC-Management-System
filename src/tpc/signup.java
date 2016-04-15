@@ -1,11 +1,8 @@
 package tpc;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +21,7 @@ public class signup extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		System.out.println("svfv");
 		String jname = request.getParameter("jname");
 		String jid = request.getParameter("juserid");
 		String jemail = request.getParameter("jemail");

@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Signup page</title>
 </head>
 <body>
 	!! Sign Up if you are a recruiter(for a JOB) !!
 	<br/><br/>
-	<form method="post" action="csignup.jsp">
+	<form method="get" action="signup">
 		Name: <input name="jname" type="text"/><br/>
 		UserID: <input name="juserid" type="text"/><br/>
 		Email: <input name="jemail" type="text"/><br/>

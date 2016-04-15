@@ -1,12 +1,12 @@
 package tpc;
 
 class Recruiter{
-	private String name;
-	private String email;
+	String name;
+	String email;
 	String userid;
-	private String phone;
-	private String password;
-	private int type;
+	String phone;
+	String password;
+	int type;
 	
 	Recruiter(){
 		this.type = 2;

@@ -7,20 +7,12 @@
   </welcome-file-list>
   
   <servlet>
-    <servlet-name>Recruiter</servlet-name>
-    <servlet-class>tpc.Recruiter</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Recruiter</servlet-name>
-    <url-pattern>/csignup.jsp</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>signupintern</servlet-name>
+    <servlet-name>signup</servlet-name>
     <servlet-class>tpc.signup</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>signupintern</servlet-name>
-    <url-pattern>/signupintern</url-pattern>
+    <servlet-name>signup</servlet-name>
+    <url-pattern>/signupforjob</url-pattern>
   </servlet-mapping>
   
 </web-app>
@@ -37,6 +29,15 @@
   <servlet-mapping>
     <servlet-name>start</servlet-name>
     <url-pattern>/clogin.jsp</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Recruiter</servlet-name>
+    <servlet-class>tpc.Recruiter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Recruiter</servlet-name>
+    <url-pattern>/csignup.jsp</url-pattern>
   </servlet-mapping>
   
     <description></description>
