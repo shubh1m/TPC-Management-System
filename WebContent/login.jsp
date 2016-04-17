@@ -7,12 +7,16 @@
 <title>Welcome to LNMIIT, Jaipur</title>
 </head>
 <body>
-	<form method="post" action="clogin.jsp">
+	<form method="post" action="CLogin">
 		Login
 		<br/><br/>
 		Username: <input name="username" type="text"/><br/>
-		Password: <input name="password" type="password"/><br/>
-		<input type="submit"/>
+		Password: <input name="password" type="password"/><br/><br/>
+		<input type="radio" name="type" value="1">Student
+		<input type="radio" name="type" value="2">Admin
+		<input type="radio" name="type" value="3">Recruiter
+		<br/>
+		<input type="submit" value="Submit"/>
 	</form>
 	<br/><br/>
 	<a href="./signup.jsp">Sign Up for JOB</a>

@@ -10,38 +10,49 @@ public class Login_Job{
 		Connection c = co.Conn();
 		Statement stmt = null;
 		PrintStream writer = null;
-		int flag=0, flag1=0;
+		int flag=0;
 		try{
 			// Execute a query
 			System.out.println("Creating statement...");
 			stmt = c.createStatement();
+
+			String name = rec.getName();
+			String userid = rec.getUserID();
+			String email = rec.getEmail();
+			String phone = rec.getPhone();
+			float baseSalary = rec.getBaseSalary();
+			float minCPI = rec.getMinCPI();
+			String branchPreffered = rec.getBranchPrefferd();
+			String dateOfVisit = rec.getDateOfVisit();
+			String password = rec.getPassword();
+			int type = rec.getType();
 			
 			ResultSet rs  = stmt.executeQuery("select * from signup_job");
 			while(rs.next()){
 				String id = rs.getString("userid");
-				if(id.equals(rec.userid)){
+				if(id.equals(userid)){
 					writer.println("<script type=\"text/javascript\">");
 					writer.println("alert('Username already exist. Choose another username')");
 					writer.println("</script>");
 					flag = 1;
-					flag1 = 1;
+					// flag1 removed
 					break;
 				}
 			}
 			
 			if(flag == 0){
-				stmt.executeUpdate("INSERT INTO signup_job values('" + rec.name + "','"
-						+ rec.userid + "','"
-						+ rec.email + "','"
-						+ rec.phone + "','"
-						+ rec.baseSalary + "','"
-						+ rec.minCPI + "','"
-						+ rec.branchPreffered + "','"
-						+ rec.dateOfVisit + "','"
-						+ rec.password + "','"
-						+ rec.type + "')");
+				stmt.executeUpdate("INSERT INTO signup_job values('" + name + "','"
+						+ userid + "','"
+						+ email + "','"
+						+ phone + "','"
+						+ baseSalary + "','"
+						+ minCPI + "','"
+						+ branchPreffered + "','"
+						+ dateOfVisit + "','"
+						+ password + "','"
+						+ type + "')");
 				
-				String str = "INSERT INTO login values('" + rec.userid + "','" + rec.password + "','" +rec.type + "')";
+				String str = "INSERT INTO login values('" + userid + "','" + password + "','" + type + "')";
 				stmt.executeUpdate(str);
 			}
 			

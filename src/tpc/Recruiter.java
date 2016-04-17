@@ -1,12 +1,12 @@
 package tpc;
 
 class Recruiter{
-	String name;
-	String email;
-	String userid;
-	String phone;
-	String password;
-	int type;
+	private String name;
+	private String email;
+	private String userid;
+	private String phone;
+	private String password;
+	private int type;
 	
 	Recruiter(){
 		this.type = 2;
@@ -40,6 +40,10 @@ class Recruiter{
 		return this.name;
 	}
 	
+	public String getUserID(){
+		return this.userid;
+	}
+	
 	public String getEmail(){
 		return this.email;
 	}
@@ -48,16 +52,20 @@ class Recruiter{
 		return this.phone;
 	}
 	
+	public String getPassword(){
+		return this.password;
+	}
+	
 	public int getType(){
 		return this.type;
 	}
 }
 
 class ForJob extends Recruiter{
-	float baseSalary;
-	float minCPI;
-	String branchPreffered;
-	String dateOfVisit;
+	private float baseSalary;
+	private float minCPI;
+	private String branchPreffered;
+	private String dateOfVisit;
 	
 	void setBaseSalary(float baseSalary){
 		this.baseSalary = baseSalary;
@@ -93,10 +101,10 @@ class ForJob extends Recruiter{
 }
 
 class ForIntern extends Recruiter{
-	String domain;
-	int stipend;
-	String yearPreffered;
-	String linkToWebsite;
+	private String domain;
+	private int stipend;
+	private String yearPreffered;
+	private String linkToWebsite;
 	
 	void setDomain(String domain){
 		this.domain = domain;

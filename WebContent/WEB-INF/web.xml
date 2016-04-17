@@ -12,6 +12,14 @@
     <servlet-name>signup</servlet-name>
     <url-pattern>/signup</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CLogin</servlet-name>
+    <servlet-class>tpc.CLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CLogin</servlet-name>
+    <url-pattern>/clogin.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>
 <!-- <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>

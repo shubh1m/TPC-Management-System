@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	PrintStream writer = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Successfully signed up!!");
@@ -17,6 +16,7 @@ public class signup extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		String jname = request.getParameter("jname");
 		String jid = request.getParameter("juserid");
 		String jemail = request.getParameter("jemail");
@@ -42,9 +42,10 @@ public class signup extends HttpServlet {
 			Login_Job.main(recj);
 		}
 		else{
-			writer.println("<script type=\"text/javascript\">");
-			writer.println("alert('Password does not match. Enter your credentials again')");
-			writer.println("</script>");
+			// Kaam nhi kar raha
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Password does not match. Enter your credentials again')");
+			out.println("</script>");
 			String redirectURL = "./signup.jsp";
 			response.sendRedirect(redirectURL);
 		}
