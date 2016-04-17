@@ -2,19 +2,16 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>TPC</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <servlet-name>signup</servlet-name>
     <servlet-class>tpc.signup</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>signup</servlet-name>
-    <url-pattern>/signupforjob</url-pattern>
+    <url-pattern>/signup</url-pattern>
   </servlet-mapping>
-  
 </web-app>
 <!-- <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>

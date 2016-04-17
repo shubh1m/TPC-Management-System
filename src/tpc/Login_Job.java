@@ -1,49 +1,53 @@
 package tpc;
 
 import java.sql.*;
+import java.io.*;
 
 public class Login_Job{
 	public static void main(ForJob rec)
 	{
-		Connect conn = new Connect();
+		Connect co = new Connect();
+		Connection c = co.Conn();
 		Statement stmt = null;
+		PrintStream writer = null;
+		int flag=0, flag1=0;
 		try{
 			// Execute a query
 			System.out.println("Creating statement...");
-			stmt = conn.createStatement();
-		/*	String str = "CREATE TABLE IF NOT EXISTS signup_job("
-					+ " Job_Name varchar(30) not null,"
-					+ " RecruiterID varchar(20) not null, "
-					+ " EmailID varchar(20) not null,"
-					+ " Contact varchar(15),"
-					+ " 'Base_Salary(in lakhs)' float not null, "
-					+ " 'Min_CPI' float not null,"
-					+ " 'Branch_Preffered' varchar(20),"
-					+ " 'Date_of_Visit' varchar(20),"
-					+ " Password varchar(20) not null,"
-					+ " type int)";
-			stmt.executeUpdate(str);
-			String str1 = "INSERT INTO signup_job values(" + rec.name + "," 
-															+ rec.userid + ","
-															+ rec.email + ","
-															+ rec.phone + ","
-															+ rec.baseSalary + ","
-															+ rec.minCPI + ","
-															+ rec.branchPreffered + ","
-															+ rec.dateOfVisit + ","
-															+ "3)"; 
-		*/	stmt.executeUpdate("INSERT INTO signup_job values(" + rec.name + "," 
-					+ rec.userid + ","
-					+ rec.email + ","
-					+ rec.phone + ","
-					+ rec.baseSalary + ","
-					+ rec.minCPI + ","
-					+ rec.branchPreffered + ","
-					+ rec.dateOfVisit + ","
-					+ "3)");
+			stmt = c.createStatement();
+			
+			ResultSet rs  = stmt.executeQuery("select * from signup_job");
+			while(rs.next()){
+				String id = rs.getString("userid");
+				if(id.equals(rec.userid)){
+					writer.println("<script type=\"text/javascript\">");
+					writer.println("alert('Username already exist. Choose another username')");
+					writer.println("</script>");
+					flag = 1;
+					flag1 = 1;
+					break;
+				}
+			}
+			
+			if(flag == 0){
+				stmt.executeUpdate("INSERT INTO signup_job values('" + rec.name + "','"
+						+ rec.userid + "','"
+						+ rec.email + "','"
+						+ rec.phone + "','"
+						+ rec.baseSalary + "','"
+						+ rec.minCPI + "','"
+						+ rec.branchPreffered + "','"
+						+ rec.dateOfVisit + "','"
+						+ rec.password + "','"
+						+ rec.type + "')");
+				
+				String str = "INSERT INTO login values('" + rec.userid + "','" + rec.password + "','" +rec.type + "')";
+				stmt.executeUpdate(str);
+			}
+			
 			// Clean-up environment
 			stmt.close();
-			conn.close();
+			c.close();
 			}
 		catch(SQLException se1){ 
 			//Handle errors for JDBC
@@ -61,13 +65,28 @@ public class Login_Job{
 			}
 			catch(SQLException se2){
 			}// nothing we can do
-		/*	try{
-				if(conn!=null)
-					conn.close();
+			try{
+				if(c!=null)
+					c.close();
 			}
 			catch(SQLException se3){
 				se3.printStackTrace();
-			}*/
+			}
 		}
 	}
 }
+
+
+
+/*	String str = "CREATE TABLE IF NOT EXISTS signup_job("
++ " Job_Name varchar(30) not null,"
++ " RecruiterID varchar(20) not null, "
++ " EmailID varchar(30) not null,"
++ " Contact varchar(15),"
++ " 'Base_Salary(in lakhs)' float not null, "
++ " 'Min_CPI' float not null,"
++ " 'Branch_Preffered' varchar(20),"
++ " 'Date_of_Visit' varchar(20),"
++ " Password varchar(20) not null,"
++ " type int)";
+stmt.executeUpdate(str);*/

@@ -32,6 +32,10 @@ class Recruiter{
 		this.password = password;
 	}
 	
+	public void setType(int type){
+		this.type = type;
+	}
+	
 	public String getName(){
 		return this.name;
 	}
@@ -42,6 +46,10 @@ class Recruiter{
 	
 	public String getPhone(){
 		return this.phone;
+	}
+	
+	public int getType(){
+		return this.type;
 	}
 }
 

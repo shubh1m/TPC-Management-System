@@ -7,28 +7,30 @@ public class Connect{
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/tpc";
 	// Database credentials
-	static final String USER = "";
-	static final String PASS = "";
+	static final String USER = "root";
+	static final String PASS = "iamshubh22";
 	
-	Connect(){
+	//public Connection Conn(){
+	Connection Conn(){
 		Connection conn = null;
 		try{
 			// Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(JDBC_DRIVER);
 			// Open a connection
 			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		//	System.out.println(conn.getMetaData().getDatabaseProductVersion());
 		}
 		catch(Exception e){
 			e.printStackTrace();
 		}
-	//	return conn;
+		return conn;
 	}
 
-	public Statement createStatement(){
+/*	public Statement createStatement(){
 		return null;
 	}
-
+*/
 	public void close(){
 	}
 }

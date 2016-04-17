@@ -9,7 +9,7 @@
 <body>
 	!! Sign Up if you are a recruiter(for a JOB) !!
 	<br/><br/>
-	<form method="get" action="signup">
+	<form method="post" action="signup">
 		Name: <input name="jname" type="text"/><br/>
 		UserID: <input name="juserid" type="text"/><br/>
 		Email: <input name="jemail" type="text"/><br/>
@@ -18,7 +18,8 @@
 		Min. CPI: <input name="jmincpi" type="text"/><br/>
 		Branch preffered: <input name="jbranch" type="text"/><br/>
 		Date of visit: <input name="jdov" type="text"/><br/>
-		Password: <input name="passwd" type="password"/><br/><br/>
+		Password: <input name="passwd" type="password"/><br/>
+		Confirm password <input name="cpasswd" type="password"/><br/><br/>
 		<input type="submit">
 	</form>
 </body>
