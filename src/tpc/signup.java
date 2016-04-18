@@ -23,7 +23,7 @@ public class signup extends HttpServlet {
 		String jphone = request.getParameter("jphone");
 		float jsalary = Float.parseFloat(request.getParameter("jsalary"));
 		float jmincpi = Float.parseFloat(request.getParameter("jmincpi"));
-		String jbranch = request.getParameter("jbranch");
+		String jbranch = request.getParameter("jbranch").toUpperCase();
 		String jdov = request.getParameter("jdov");
 		String jpasswd = request.getParameter("passwd");
 		String jcpasswd = request.getParameter("cpasswd");

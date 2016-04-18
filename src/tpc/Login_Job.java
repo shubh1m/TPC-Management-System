@@ -9,7 +9,8 @@ public class Login_Job{
 		Connect co = new Connect();
 		Connection c = co.Conn();
 		Statement stmt = null;
-		PrintStream writer = null;
+//		PrintStream writer = null;
+//		PrintWriter out = response.getWriter();
 		int flag=0;
 		try{
 			// Execute a query
@@ -27,14 +28,17 @@ public class Login_Job{
 			String password = rec.getPassword();
 			int type = rec.getType();
 			
-			ResultSet rs  = stmt.executeQuery("select * from signup_job");
+			ResultSet rs  = stmt.executeQuery("select * from login");
 			while(rs.next()){
-				String id = rs.getString("userid");
+				String id = rs.getString("UserID");
 				if(id.equals(userid)){
-					writer.println("<script type=\"text/javascript\">");
-					writer.println("alert('Username already exist. Choose another username')");
-					writer.println("</script>");
+					System.out.println("Username already exist. Choose another username");
+					// Not working
+					// writer.println("<script type=\"text/javascript\">");
+					// writer.println("alert('Username already exist. Choose another username')");
+					// writer.println("</script>");
 					flag = 1;
+					//	response.setHeader("Refresh", "0.01; URL=http://localhost:8080/TPC/login.jsp");
 					// flag1 removed
 					break;
 				}

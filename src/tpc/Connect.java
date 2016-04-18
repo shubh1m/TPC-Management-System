@@ -8,7 +8,7 @@ public class Connect{
 	static final String DB_URL = "jdbc:mysql://localhost:3306/tpc";
 	// Database credentials
 	static final String USER = "root";
-	static final String PASS = "";
+	static final String PASS = "iamshubh22";
 	
 	//public Connection Conn(){
 	Connection Conn(){
@@ -26,10 +26,6 @@ public class Connect{
 		return conn;
 	}
 
-/*	public Statement createStatement(){
-		return null;
-	}
-*/
 	public void close(){
 	}
 }
