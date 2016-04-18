@@ -20,7 +20,7 @@
 		Date of visit: <input name="jdov" type="text"/><br/>
 		Password: <input name="passwd" type="password"/><br/>
 		Confirm password <input name="cpasswd" type="password"/><br/><br/>
-		<input type="submit">
+		<input type="submit" value="Submit">
 	</form>
 </body>
 </html>

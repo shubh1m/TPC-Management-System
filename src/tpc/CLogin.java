@@ -46,7 +46,7 @@ public class CLogin extends HttpServlet {
 				if(username.equals(uid) && password.equals(passwd) && type.equals(tp)){
 					System.out.println("Correct Credentials");
 					response.setContentType("text/html");
-					String redirectURL = "./index.jsp";
+					String redirectURL = "index.jsp";
 					response.sendRedirect(redirectURL);
 					flag=1;
 					break;
@@ -58,8 +58,9 @@ public class CLogin extends HttpServlet {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Wrong username or password.')");
 				out.println("</script>");
-				String redirectURL = "./login.jsp";
-				response.sendRedirect(redirectURL);
+				response.setHeader("Refresh", "0.01; URL=http://localhost:8080/TPC/login.jsp");
+			//	String redirectURL = "login.jsp";
+			//	response.sendRedirect(redirectURL);
 			}
 			rs.close();
 			stmt.close();
