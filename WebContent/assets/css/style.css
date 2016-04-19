@@ -5,6 +5,10 @@
     font-weight: 300;
 }
 
+.navbar {
+	border-left: 55px;
+}
+
 .breadcrumb {
     border-left-color: #3E84C2;
 }
@@ -72,6 +76,11 @@
 .nav a:hover .caret {
     border-top-color: #418d49;
     border-bottom-color: #418d49;
+}
+
+.main-content{
+	top-margin: 15 px;
+	left-margin: 15 px;
 }
 
 a {
@@ -209,7 +218,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .jumbotron{
-    background: url(assets/images/back.jpg);
+    background-image: url("assets/images/back.jpg");
     color: #ffffff;
     background-attachment: fixed;
 }
@@ -550,5 +559,5 @@ footer *{
     margin-left: 10px;
 }
 .title span{
-    font-weight: 900;
+    font-weight: 500;
 }

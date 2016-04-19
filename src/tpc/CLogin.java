@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 //@WebServlet("/CLogin")
 @WebServlet("/CLogin")
@@ -20,11 +21,14 @@ public class CLogin extends HttpServlet {
        
     }
 
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		boolean isLoggedIn = false;
+		HttpSession ht = request.getSession();
 		Connect co = new Connect();
 		Connection c = co.Conn();
 		PrintWriter out = response.getWriter();
@@ -44,16 +48,20 @@ public class CLogin extends HttpServlet {
 				//System.out.println(uid + passwd + tp);
 				
 				if(username.equals(uid) && password.equals(passwd) && type.equals(tp)){
-					System.out.println("Correct Credentials");
+					System.out.println("Congratulations " + uid + "!! You are logged in.");
+					isLoggedIn = true;
+					Recruiter rec = new Recruiter();
+					rec.setUserID(uid);
+					ht.setAttribute("RecruiterID", uid);
 					response.setContentType("text/html");
-					String redirectURL = "index.jsp";
-					response.sendRedirect(redirectURL);
+					response.sendRedirect(request.getContextPath() + "/index.jsp");
 					flag=1;
 					break;
 				}
 			}
 			if(flag==0){
 				System.out.println("Wrong username or password.");
+				isLoggedIn = false;
 				response.setContentType("text/html");
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Wrong username or password.')");
