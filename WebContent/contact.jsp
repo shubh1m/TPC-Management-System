@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane fade" id="contact">
+		<div role="tabpanel" class="tab-pane" id="contact">
 			Contact details: xxxxx-xxxxx
 		</div>
 	</div>

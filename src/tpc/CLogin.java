@@ -54,7 +54,7 @@ public class CLogin extends HttpServlet {
 					rec.setUserID(uid);
 					ht.setAttribute("RecruiterID", uid);
 					response.setContentType("text/html");
-					response.sendRedirect(request.getContextPath() + "/index.jsp");
+					response.sendRedirect(request.getContextPath() + "/index1.jsp");
 					flag=1;
 					break;
 				}

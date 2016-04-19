@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>TPC</display-name>
   <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
+    <welcome-file>index1.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>signup</servlet-name>
@@ -19,6 +19,14 @@
   <servlet-mapping>
     <servlet-name>CLogin</servlet-name>
     <url-pattern>/clogin.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>tpc.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/index1.jsp</url-pattern>
   </servlet-mapping>
 </web-app>
 <!-- <welcome-file>index.htm</welcome-file>
