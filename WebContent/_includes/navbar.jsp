@@ -10,7 +10,7 @@
 	          	<li><a href="life.jsp">Life @LNMIIT</a></li>
 	          	<li><a href="contact.jsp">Contact</a></li>
 	            <% if(session.getAttribute("RecruiterID") == null){ %>
-		            <li>
+		            <li class="nav navbar-nav navbar-right">
 		         	   	<ul class="nav navbar-nav navbar-right">
 							<li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					  		<li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -19,9 +19,11 @@
 				<% } else{ %>
 					<li><a href="my_account.jsp">My Account</a></li>
 	            	<li><a href="logout.jsp">Log Out</a></li>
+					<p class="navbar-text navbar-right">Signed in as <a href="my_account.jsp" class="navbar-link"><strong>
+						<% out.print(session.getAttribute("RecruiterID")); %>
+					</strong></a></p>
 	           	<% } %>
 	     	</ul>
 	   	</div>
-	    <!--/.navbar-collapse  data-spy="scroll" -->
 	</div>
 </div>

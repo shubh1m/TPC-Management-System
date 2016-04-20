@@ -28,6 +28,7 @@ public class CLogin extends HttpServlet {
 		response.setContentType("text/html");
 		boolean isLoggedIn = false;
 		HttpSession ht = request.getSession();
+		PrintWriter writer  = response.getWriter();
 		Connect co = new Connect();
 		Connection c = co.Conn();
 		PrintWriter out = response.getWriter();
@@ -65,9 +66,10 @@ public class CLogin extends HttpServlet {
 				out.println("<script type=\"text/javascript\">");
 				out.println("alert('Wrong username or password.')");
 				out.println("</script>");
-				response.setHeader("Refresh", "0.01; URL=http://localhost:8080/TPC/login.jsp");
-			//	String redirectURL = "login.jsp";
-			//	response.sendRedirect(redirectURL);
+				writer.println("<script type=\"text/javascript\">");  
+				writer.println("alert('successfully loged in');");  
+				writer.println("</script>");
+				response.sendRedirect(request.getContextPath() + "/login.jsp");;
 			}
 			rs.close();
 			stmt.close();

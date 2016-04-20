@@ -15,6 +15,7 @@
 	    <li role="presentation"><a href="#job" aria-controls="job" role="tab" data-toggle="tab">Apply for Job</a></li>
 	    <li role="presentation"><a href="#intern" aria-controls="intern" role="tab" data-toggle="tab">Apply for Intern</a></li>
 	    <li role="presentation"><a href="#details" aria-controls="settings" role="tab" data-toggle="tab">Edit details</a></li>
+	    <li role="presentation"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">View details</a></li>
 	  </ul>
 	  
 	  <br/><br/><br/><br/>
@@ -141,6 +142,10 @@
 			    </div>
 	    	</form>
 	    </div>
+	    
+	    <div role="tabpanel" class="tab-pane" id="view">
+		
+		</div>
 	    
 	  </div>
 </div>

@@ -7,6 +7,7 @@ public class Dao {
 	Connect co;
 	Connection c;
 	PreparedStatement pstmt;
+	PreparedStatement pst;
 	Dao(){
 		Connect co = new Connect();
 		c = co.Conn();
@@ -84,7 +85,7 @@ public class Dao {
 	
 	public void editDetails(Recruiter rec){
 		try{
-			String str = "UPDATE signup SET Job_Name = ? AND EmailID = ? AND Contact = ? AND Password = ? WHERE RecruiterID = ?";
+			String str = "UPDATE signup SET Job_Name = ? , EmailID = ? , Contact = ? , Password = ? WHERE RecruiterID = ?";
 			pstmt = c.prepareStatement(str);
 			pstmt.setString(1, rec.getName());
 			pstmt.setString(2, rec.getEmail());
@@ -92,7 +93,13 @@ public class Dao {
 			pstmt.setString(4, rec.getPassword());
 			pstmt.setString(5, rec.getUserID());
 			pstmt.executeUpdate();
-			System.out.println("Details edited");
+			System.out.println("Signup table edited");
+			String s = "UPDATE login SET Password = ? WHERE UserID = ?";
+			pst = c.prepareStatement(s);
+			pst.setString(1, rec.getPassword());
+			pst.setString(2, rec.getUserID());
+			pst.executeUpdate();
+			System.out.println("Login table edited");
 		}
 		catch (Exception e) {
             e.printStackTrace();
