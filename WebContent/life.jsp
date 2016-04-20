@@ -9,8 +9,10 @@
 </head>
 <body>
 	<%@include file="_includes/navbar.jsp" %>
+	<br/><br/>
+	<div class="page-header">
 		<h3>Student Life @ LNMIIT Campus</h3>
-		
+	</div>
 		The institute provides its students with opportunities for exploring and enhancing their talents not only in the Technology but also in extra- curricular activities. Accordingly, our academic programs are backed up with appropriate co- curricular and extra-curricular inputs promoting culture, sports, self-governance and values; all of which help the students towards becoming complete human beings.
 		The students of the institute live together in the hostels which helps in developing a healthy and social relationship among them. Ragging is strictly prohibited in the campus.
 		Each year student elections are held, for various clubs and  for food arrangements, interaction of the student community with the administration of the university, hostel facilities, and coordination of active sports and cultural activities in the university.

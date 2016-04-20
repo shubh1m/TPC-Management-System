@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//@WebServlet("/CLogin")
 @WebServlet("/CLogin")
 public class CLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -54,7 +53,7 @@ public class CLogin extends HttpServlet {
 					rec.setUserID(uid);
 					ht.setAttribute("RecruiterID", uid);
 					response.setContentType("text/html");
-					response.sendRedirect(request.getContextPath() + "/index1.jsp");
+					response.sendRedirect(request.getContextPath() + "/index.jsp");
 					flag=1;
 					break;
 				}

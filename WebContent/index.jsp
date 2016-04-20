@@ -8,10 +8,10 @@
 	<%@include file="_includes/scripts.jsp" %>
 </head>
 <body data-target="#topnav">
-	<%@include file="_includes/navbar.jsp" %>
 	Home page of TPC
- 	<br/><br/>
-
+	<br/><br/>
+	<%@include file="_includes/navbar.jsp" %>
+	
 	<div class="jumbotron" id="home">
     	Training and Placement Cell, The LNMIIT
     	<br/>

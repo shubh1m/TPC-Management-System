@@ -1,12 +1,14 @@
 package tpc;
+import java.util.*;
 
 class Recruiter{
 	private String name;
-	private String email;
 	private String userid;
+	private String email;
 	private String phone;
 	private String password;
 	private int type;
+	Dao db = new Dao();
 	
 	Recruiter(){
 		this.type = 2;
@@ -14,6 +16,7 @@ class Recruiter{
 	
 	public void setName(String name){
 		this.name = name;
+		db.updateName(this.userid, name);
 	}
 	
 	public void setUserID(String userid){
@@ -97,6 +100,12 @@ class ForJob extends Recruiter{
 	
 	String getDateOfVisit(){
 		return this.dateOfVisit;
+	}
+	
+	ArrayList<String> getDetails(String userid){
+		ArrayList<String> al = new ArrayList<String>();
+		al = db.getDetails(userid);
+		return al;
 	}
 }
 

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class signup extends HttpServlet {
+public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,29 +17,21 @@ public class signup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String jname = request.getParameter("jname");
-		String jid = request.getParameter("juserid");
-		String jemail = request.getParameter("jemail");
-		String jphone = request.getParameter("jphone");
-		float jsalary = Float.parseFloat(request.getParameter("jsalary"));
-		float jmincpi = Float.parseFloat(request.getParameter("jmincpi"));
-		String jbranch = request.getParameter("jbranch").toUpperCase();
-		String jdov = request.getParameter("jdov");
-		String jpasswd = request.getParameter("passwd");
-		String jcpasswd = request.getParameter("cpasswd");
-		if(jpasswd.equals(jcpasswd)){
-			ForJob recj = new ForJob();
-			recj.setName(jname);
-			recj.setUserID(jid);
-			recj.setEmail(jemail);
-			recj.setPhone(jphone);
-			recj.setBaseSalary(jsalary);
-			recj.setMinCPI(jmincpi);
-			recj.setBranchPrefferd(jbranch);
-			recj.setDateOfVisit(jdov);
-			recj.setPassword(jpasswd);
-			recj.setType(3);
-			Login_Job.main(recj);
+		String name = request.getParameter("name");
+		String id = request.getParameter("userid");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String passwd = request.getParameter("passwd");
+		String cpasswd = request.getParameter("cpasswd");
+		if(passwd.equals(cpasswd)){
+			Recruiter rec = new Recruiter();
+			rec.setName(name);
+			rec.setUserID(id);
+			rec.setEmail(email);
+			rec.setPhone(phone);
+			rec.setPassword(passwd);
+			rec.setType(3);
+			Signup.main(rec);
 		}
 		else{
 			out.println("<script type=\"text/javascript\">");
@@ -51,3 +43,15 @@ public class signup extends HttpServlet {
 		}
 	}
 }
+
+/*
+		float jsalary = Float.parseFloat(request.getParameter("jsalary"));
+		float jmincpi = Float.parseFloat(request.getParameter("jmincpi"));
+		String jbranch = request.getParameter("jbranch").toUpperCase();
+		String jdov = request.getParameter("jdov");
+		
+			recj.setBaseSalary(jsalary);
+			recj.setMinCPI(jmincpi);
+			recj.setBranchPrefferd(jbranch);
+			recj.setDateOfVisit(jdov);
+ */

@@ -17,7 +17,7 @@ public class Connect{
 			// Register JDBC driver
 			Class.forName(JDBC_DRIVER);
 			// Open a connection
-			System.out.println("Connecting to database...");
+			//System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		}
 		catch(Exception e){

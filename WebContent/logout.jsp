@@ -4,16 +4,17 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Contact Us</title>
-	<%@include file="_includes/scripts.jsp" %>	
-</head>
+	<title>Confirm logout</title>
+	</head>
+	<%@include file="_includes/scripts.jsp" %>
 <body>
  	<%@include file="_includes/navbar.jsp" %>
-	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane fade" id="contact">
-		<br/><br/><br/>
-			Contact details: xxxxx-xxxxx
-		</div>
+	<div class="jumbotron">
+		<form action="Logout" method="post">
+			<input type="radio" name="confirm" value="yes">Yes
+			<input type="radio" name="confirm" value="no">No
+			<input type="submit" value="Submit">
+		</form>
 	</div>
 </body>
 </html>

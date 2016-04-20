@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%@include file="_includes/navbar.jsp" %>
+	<>
 	<h3>Vision</h3>
 	To establish world class platform for creation of knowledge through quality research and its dissemination through technologically enabled teaching - learning pedagogy in the field of science, technology, engineering, arts and management. To become a catalyst in the societal and national development, by ensuring continuous interaction with industry and other academic and research institutions in India and abroad.
 	

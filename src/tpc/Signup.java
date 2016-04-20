@@ -1,16 +1,14 @@
 package tpc;
 
 import java.sql.*;
-import java.io.*;
 
-public class Login_Job{
-	public static void main(ForJob rec)
+public class Signup{
+	public static void main(Recruiter rec)
 	{
 		Connect co = new Connect();
 		Connection c = co.Conn();
 		Statement stmt = null;
-//		PrintStream writer = null;
-//		PrintWriter out = response.getWriter();
+		PreparedStatement  pstmt = null;
 		int flag=0;
 		try{
 			// Execute a query
@@ -21,10 +19,6 @@ public class Login_Job{
 			String userid = rec.getUserID();
 			String email = rec.getEmail();
 			String phone = rec.getPhone();
-			float baseSalary = rec.getBaseSalary();
-			float minCPI = rec.getMinCPI();
-			String branchPreffered = rec.getBranchPrefferd();
-			String dateOfVisit = rec.getDateOfVisit();
 			String password = rec.getPassword();
 			int type = rec.getType();
 			
@@ -45,19 +39,23 @@ public class Login_Job{
 			}
 			
 			if(flag == 0){
-				stmt.executeUpdate("INSERT INTO signup_job values('" + name + "','"
-						+ userid + "','"
-						+ email + "','"
-						+ phone + "','"
-						+ baseSalary + "','"
-						+ minCPI + "','"
-						+ branchPreffered + "','"
-						+ dateOfVisit + "','"
-						+ password + "','"
-						+ type + "')");
+				String s = "INSERT INTO signup values(?, ?, ?, ?, ?, ?)";
+				pstmt = c.prepareStatement(s);
+				pstmt.setString(1, name);
+				pstmt.setString(2, userid);
+				pstmt.setString(3, email);
+				pstmt.setString(4, phone);
+				pstmt.setString(5, password);
+				pstmt.setInt(6, type);
+				pstmt.executeUpdate();
 				
-				String str = "INSERT INTO login values('" + userid + "','" + password + "','" + type + "')";
-				stmt.executeUpdate(str);
+				String str = "INSERT INTO login values(?, ?, ?)";
+				pstmt = c.prepareStatement(str);
+				pstmt.setString(1, userid);
+				pstmt.setString(2, password);
+				pstmt.setInt(3, type);
+				
+				System.out.println("Congratulations " + userid + "!! You have successfully signed up");
 			}
 			
 			// Clean-up environment
@@ -90,18 +88,3 @@ public class Login_Job{
 		}
 	}
 }
-
-
-
-/*	String str = "CREATE TABLE IF NOT EXISTS signup_job("
-+ " Job_Name varchar(30) not null,"
-+ " RecruiterID varchar(20) not null, "
-+ " EmailID varchar(30) not null,"
-+ " Contact varchar(15),"
-+ " 'Base_Salary(in lakhs)' float not null, "
-+ " 'Min_CPI' float not null,"
-+ " 'Branch_Preffered' varchar(20),"
-+ " 'Date_of_Visit' varchar(20),"
-+ " Password varchar(20) not null,"
-+ " type int)";
-stmt.executeUpdate(str);*/
