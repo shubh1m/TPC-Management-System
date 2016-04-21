@@ -7,7 +7,7 @@ public class Student {
     private String DateOfBirth;
     private String branch;
     private String password;
-    private double CGPA;
+    private float CGPA;
     private String gender;
     private String emailId;
     private String PlacedCompany;
@@ -43,7 +43,7 @@ public class Student {
         this.branch=branch;
     }
 
-    void setCGPA(double cgpa){
+    void setCGPA(float cgpa){
         this.CGPA=cgpa;
     }
 
@@ -87,7 +87,7 @@ public class Student {
         return this.branch;
     }
 
-    double getCGPA(){
+    float getCGPA(){
         return this.CGPA;
     }
 

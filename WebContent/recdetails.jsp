@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.sql.*" %>
-    <%@page import="org.tpc.opps.Conn" %>
+    <%@page import="tpc.*" %>
     <%@page import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,18 +10,18 @@
 </head>
 <body>
 <%
-	Conn c = new Conn();
-	Connection co = c.con();
+	Connect c = new Connect();
+	Connection co = c.Conn();
 	Statement stmt = co.createStatement();
-	ResultSet rs = stmt.executeQuery("select name,email,phone,baseSalary,minCPI,branchPreffered,dateOfVisit from recruiter join forjob on recruiter.userid= forjob.userid;");
+	ResultSet rs = stmt.executeQuery("SELECT Job_Name, EmailID, Contact, Base_Salary, Min_CPI, Branch_Preffered, Date_of_Visit FROM signup JOIN For_Job on signup.RecruiterID= For_Job.RecruiterID");
 %>
 <TABLE id="tb01" border="1" style="width: 100%" style="backgroung-color:#E6E6FA">
 <TR>
-	<TH>NAME</TH>
-	<th>EMAIL ID</th>
-	<th>PHONE NUMBER</th>
+	<TH>Name</TH>
+	<th>Email ID</th>
+	<th>Contact</th>
 	<th>Base Salary</th>
-	<th>Minimum Cpi</th>
+	<th>Minimum CPI</th>
 	<th>Branch Preffered</th>
 	<th>Date of Visit</th>
 	</TR>

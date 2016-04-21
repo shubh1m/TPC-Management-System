@@ -9,10 +9,11 @@ public class Signup{
 		Connection c = co.Conn();
 		Statement stmt = null;
 		PreparedStatement  pstmt = null;
+		PreparedStatement  pstm = null;
 		int flag=0;
 		try{
 			// Execute a query
-			System.out.println("Creating statement...");
+		//	System.out.println("Creating statement...");
 			stmt = c.createStatement();
 
 			String name = rec.getName();
@@ -50,10 +51,11 @@ public class Signup{
 				pstmt.executeUpdate();
 				
 				String str = "INSERT INTO login values(?, ?, ?)";
-				pstmt = c.prepareStatement(str);
-				pstmt.setString(1, userid);
-				pstmt.setString(2, password);
-				pstmt.setInt(3, type);
+				pstm = c.prepareStatement(str);
+				pstm.setString(1, userid);
+				pstm.setString(2, password);
+				pstm.setInt(3, type);
+				pstm.executeUpdate();
 				
 				System.out.println("Congratulations " + userid + "!! You have successfully signed up");
 			}

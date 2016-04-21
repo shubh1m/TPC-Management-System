@@ -31,44 +31,38 @@ public class StudentServlet extends HttpServlet {
         
         if(session.getAttribute("UserID") == null){
         	request.setAttribute("UserID", str);
-            response.sendRedirect( request.getContextPath() + "login.html");
+            response.sendRedirect( request.getContextPath() + "/login.html");
         }
 
         else if(request.getParameter("logout") != null){
             System.out.println("CASE 2");
             session.invalidate();
-            response.sendRedirect( request.getContextPath() + "index.jsp");
+            response.sendRedirect( request.getContextPath() + "/index.jsp");
         }
         
         if( request.getParameter("logout")==null && request.getParameter("recjInformation")!=null){
-            System.out.println("hey i am working");
+            System.out.println("Companies for Job");
             Recruiter r = new Recruiter();
             ForJob f = new ForJob();
             try {
                 Statement smt = co.createStatement();
-                ResultSet rs = smt.executeQuery("select name,email,phone,baseSalary,minCPI,branchPreffered,dateOfVisit from recruiter join forjob on recruiter.userid= forjob.userid");
-                String name = null;
-                String email = null;
-                String phone = null;
-                Float baseSalary;
-                Float minCpi;
-                String branch ;
-                String dov;
+                ResultSet rs = smt.executeQuery("select Job_Name, EmailID, Contact, Base_Salary, Min_CPI, Branch_Preffered, Date_of_Visit FROM signup JOIN For_Job on signup.RecruiterID= For_Job.RecruiterID");
+                
                 while(rs.next()){
-                    r.setName(rs.getString("name"));
-                    r.setEmail(rs.getString("email"));
-                    r.setPhone(rs.getString("phone"));
-                    f.setBaseSalary(rs.getFloat("baseSalary"));
-                    f.setMinCPI(rs.getFloat("minCPI"));
-                    f.setBranchPrefferd(rs.getString("branchPreffered"));
-                    f.setDateOfVisit(rs.getString("dateOfVisit"));
-                    name = r.getName();
-                    email = r.getEmail();
-                    phone = r.getPhone();
-                    baseSalary = f.getBaseSalary();
-                    minCpi = f.getMinCPI();
-                    branch = f.getBranchPrefferd();
-                    dov = f.getDateOfVisit();
+                    r.setName(rs.getString("Job_Name"));
+                    r.setEmail(rs.getString("EmailID"));
+                    r.setPhone(rs.getString("Contact"));
+                    f.setBaseSalary(rs.getFloat("Base_Salary"));
+                    f.setMinCPI(rs.getFloat("Min_CPI"));
+                    f.setBranchPrefferd(rs.getString("Branch_Preffered"));
+                    f.setDateOfVisit(rs.getString("Date_of_Visit"));
+                    String name = r.getName();
+                    String email = r.getEmail();
+                    String phone = r.getPhone();
+                    float baseSalary = f.getBaseSalary();
+                    float minCpi = f.getMinCPI();
+                    String branch = f.getBranchPrefferd();
+                    String dov = f.getDateOfVisit();
                     request.setAttribute("name", name);
                     request.setAttribute("email", email);
                     request.setAttribute("phone", phone);
@@ -79,21 +73,21 @@ public class StudentServlet extends HttpServlet {
                 }
                 //RequestDispatcher a = request.getRequestDispatcher("recdetails.jsp");
                 //a.forward(request,response);
-                response.sendRedirect(request.getContextPath() + "recdetails.jsp");
+                response.sendRedirect(request.getContextPath() + "/recdetails.jsp");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
         if(request.getParameter("logout")==null && request.getParameter("yourInformation")!=null){
-            System.out.println("CASE 3");	
+            System.out.println("My details");	
             Student s = new Student();
             Dao db = new Dao();
-            db.getAlldata(str);
+            s = db.getAlldata(str);
             String name = s.getname();
             String rollno = s.getrollNo();
             String dob = s.getDateOfBirth();
             String branch = s.getbranch();
-            double cgpa = s.getCGPA();
+            float cgpa = s.getCGPA();
             String email = s.getemailId();
             request.setAttribute("name", name);
             request.setAttribute("rollno", rollno);
@@ -101,17 +95,18 @@ public class StudentServlet extends HttpServlet {
             request.setAttribute("branch", branch);
             request.setAttribute("cgpa", cgpa);
             request.setAttribute("email", email);
-            RequestDispatcher r= request.getRequestDispatcher("sdetails.jsp");
+            RequestDispatcher r= request.getRequestDispatcher("/sdetails.jsp");
             r.forward(request, response);
             return;
         }
         
         if(request.getParameter("logout")==null && request.getParameter("reciInformation")!=null){
-            response.sendRedirect( request.getContextPath() + "recidetails.jsp");
+        	System.out.println("View Internships");
+            response.sendRedirect( request.getContextPath() + "/recidetails.jsp");
         }
         
         if(request.getParameter("logout")==null && request.getParameter("eligiblecomp")!=null){
-            response.sendRedirect(request.getContextPath() + "elidetails.jsp");
+            response.sendRedirect(request.getContextPath() + "/elidetails.jsp");
         }
     }
 }

@@ -32,6 +32,7 @@ public class SignupServlet extends HttpServlet {
 			rec.setPassword(passwd);
 			rec.setType(3);
 			Signup.main(rec);
+			response.sendRedirect(request.getContextPath() + "/index.jsp");
 		}
 		else{
 			out.println("<script type=\"text/javascript\">");

@@ -9,7 +9,9 @@
 	<%@include file="_includes/scripts.jsp" %>
 <body>
  	<%@include file="_includes/navbar.jsp" %>
-	<div class="jumbotron">
+ 	<br/><br/><br/><br/>
+	<div>
+		<h4><strong>Confirm logout: </strong></h4>
 		<form action="Logout" method="post">
 			<input type="radio" name="confirm" value="yes">Yes
 			<input type="radio" name="confirm" value="no">No

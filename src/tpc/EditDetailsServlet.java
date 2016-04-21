@@ -33,7 +33,7 @@ public class EditDetailsServlet extends HttpServlet {
 			String conatct = request.getParameter("contact");
 			
 			HttpSession ht = request.getSession();
-			String userid = ht.getAttribute("RecruiterID").toString();
+			String userid = ht.getAttribute("UserID").toString();
 			Recruiter rec = new Recruiter();
 			rec.setUserID(userid);
 			rec.setName(name);

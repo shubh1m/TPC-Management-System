@@ -52,4 +52,12 @@
     <servlet-name>EditDetailsServlet</servlet-name>
     <url-pattern>/EditDetailsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StudentServlet</servlet-name>
+    <servlet-class>tpc.StudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/StudentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

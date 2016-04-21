@@ -21,8 +21,8 @@
 	%>
 	<div>
 	  <ul class="nav nav-tabs navbar-inverse" role="tablist">
-	    <li role="presentation"><a href="#job" aria-controls="job" role="tab" data-toggle="tab">Apply for Job</a></li>
-	    <li role="presentation"><a href="#intern" aria-controls="intern" role="tab" data-toggle="tab">Apply for Intern</a></li>
+	    <li role="presentation"><a href="#job" aria-controls="job" role="tab" data-toggle="tab">Job Details</a></li>
+	    <li role="presentation"><a href="#intern" aria-controls="intern" role="tab" data-toggle="tab">Intern Details</a></li>
 	    <li role="presentation"><a href="#details" aria-controls="settings" role="tab" data-toggle="tab">Edit details</a></li>
 	    <li role="presentation"><a href="#view" aria-controls="view" role="tab" data-toggle="tab">View details</a></li>
 	  </ul>
@@ -153,7 +153,7 @@
 	    </div>
 	    
 	    <div role="tabpanel" class="tab-pane" id="view">
-		
+			<% %>
 		</div>
 	    
 	  </div>
@@ -161,10 +161,10 @@
 	
 	<% }else if(tp.equals("2")) {
 	%>
-		<form action="Studentservlet" method="post">
+		<form action="StudentServlet" method="post">
 			<input type="submit" value="View your Information" name="yourInformation">
-			<input type="submit" value="View Recruiter's Information" name="recpInformation">
-			<input type="submit" value="View Internship Giving Companies" name="reciInformation">
+			<input type="submit" value="View Companies for Job" name="recjInformation">
+			<input type="submit" value="View Companies for Internship" name="reciInformation">
 			<input type="submit" value="View Eligible Companies" name="eligiblecomp">
 			<input type="submit" value="log-out" name="logout">
 		</form>

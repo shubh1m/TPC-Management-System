@@ -11,7 +11,7 @@ public class Connect{
 	static final String PASS = "iamshubh22";
 	
 	//public Connection Conn(){
-	Connection Conn(){
+	public Connection Conn(){
 		Connection conn = null;
 		try{
 			// Register JDBC driver

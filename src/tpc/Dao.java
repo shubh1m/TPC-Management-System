@@ -155,29 +155,30 @@ public class Dao {
 		return al;
 	}
 	
-	 void getAlldata(String username){
+	 Student getAlldata(String username){
 			Connect co = new Connect();
 			Connection c = co.Conn();
 			PreparedStatement pstmt;
 			Student st = new Student();
 			try{
-				String str = "SELECT * FROM STUDENT WHERE rollno = ?";
+				String str = "SELECT * FROM student WHERE RollNo = ?";
 				pstmt = c.prepareStatement(str);
 				pstmt.setString(1, username);
-				ResultSet rs = pstmt.executeQuery();				
+				ResultSet rs = pstmt.executeQuery();
 				while(rs.next()){
-					st.setFirstName(rs.getString("firstname"));
-					st.setLastName(rs.getString("lastname"));
-					st.setrollNo(rs.getString("rollno"));
-					st.setDateOfBirth(rs.getString("dateofbirth"));
-					st.setbranch(rs.getString("branch"));
-					st.setCGPA(rs.getDouble("cgpa"));
-					st.setemailId(rs.getString("email"));
-					st.setpassword(rs.getString("password"));
+					st.setFirstName(rs.getString("Fname"));
+					st.setLastName(rs.getString("Lname"));
+					st.setrollNo(rs.getString("RollNo"));
+					st.setDateOfBirth(rs.getString("DateOfBirth"));
+					st.setbranch(rs.getString("Branch"));
+					st.setCGPA(rs.getFloat("CGPA"));
+					st.setemailId(rs.getString("EmailID"));
+					st.setpassword(rs.getString("Password"));
 				}
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
 			}
+			return st;
 	 }
 }
