@@ -15,6 +15,10 @@ public class Student {
     private String onOffCampus;
     private int type;
 
+    Student(){
+    	this.type = 2;
+    }
+    
     void settype(int type){
         this.type = type;
     }

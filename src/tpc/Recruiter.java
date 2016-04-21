@@ -11,7 +11,7 @@ class Recruiter{
 	Dao db = new Dao();
 	
 	Recruiter(){
-		this.type = 2;
+		this.type = 3;
 	}
 	
 	public void setName(String name){

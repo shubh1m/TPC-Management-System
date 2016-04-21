@@ -16,16 +16,16 @@ public class Dao {
 	
 	public boolean confirmLogin(LoginClass lc){
 		boolean flag = false;
+		//System.out.println( "hey "+ lc.getUsername() + lc.getPassword() + lc.getType());
 		try{
 			String str = "SELECT * FROM login";
 			pstmt = c.prepareStatement(str);
 			ResultSet rs = pstmt.executeQuery(str);
-			
 			while(rs.next()){
 				String uid = rs.getString("UserID");
 				String passwd = rs.getString("Password");
 				String tp = rs.getString("Type");
-				
+			//	System.out.println(uid + passwd + tp);
 				if(uid.equals(lc.getUsername()) && passwd.equals(lc.getPassword()) && tp.equals(lc.getType())){
 					System.out.println("Congratulations " + uid + "!! You are logged in.");
 					flag = true;

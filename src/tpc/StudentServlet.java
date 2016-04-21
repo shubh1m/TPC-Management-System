@@ -30,8 +30,8 @@ public class StudentServlet extends HttpServlet {
         String str = session.getAttribute("UserID").toString();
         
         if(session.getAttribute("UserID") == null){
-        	request.setAttribute("userName", str);
-            response.sendRedirect( request.getContextPath() +"login.html");
+        	request.setAttribute("UserID", str);
+            response.sendRedirect( request.getContextPath() + "login.html");
         }
 
         else if(request.getParameter("logout") != null){
@@ -40,7 +40,7 @@ public class StudentServlet extends HttpServlet {
             response.sendRedirect( request.getContextPath() + "index.jsp");
         }
         
-        if( request.getParameter("logout")==null && request.getParameter("recpInformation")!=null){
+        if( request.getParameter("logout")==null && request.getParameter("recjInformation")!=null){
             System.out.println("hey i am working");
             Recruiter r = new Recruiter();
             ForJob f = new ForJob();
@@ -101,7 +101,7 @@ public class StudentServlet extends HttpServlet {
             request.setAttribute("branch", branch);
             request.setAttribute("cgpa", cgpa);
             request.setAttribute("email", email);
-            RequestDispatcher r= request.getRequestDispatcher("Studentdetails.jsp");
+            RequestDispatcher r= request.getRequestDispatcher("sdetails.jsp");
             r.forward(request, response);
             return;
         }

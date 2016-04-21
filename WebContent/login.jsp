@@ -16,8 +16,8 @@
 			<br/><br/>
 			Username: <input name="username" type="text"/><br/>
 			Password: <input name="password" type="password"/><br/><br/>
-			<input type="radio" name="type" value="1">Student
-			<input type="radio" name="type" value="2">Admin
+			<input type="radio" name="type" value="1">Admin
+			<input type="radio" name="type" value="2">Student
 			<input type="radio" name="type" value="3">Recruiter
 			<br/>
 			<input type="submit" value="Submit"/>
