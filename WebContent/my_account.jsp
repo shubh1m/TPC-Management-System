@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.HttpServlet; %>
+<%@ page import="javax.servlet.http.HttpServletRequest; %>
+<%@ page import="javax.servlet.http.HttpServletResponse; %>
+<%@ page import="javax.servlet.http.HttpSession; %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +14,9 @@
 <body>
  	<%@include file="_includes/navbar.jsp" %>
 	<br/><br/><br/><br/>
+	<% HttpSession ht = request.getSession();
+		if(ht.getAttribute("Type") == "3") {
+	%>
 	<div>
 	  <ul class="nav nav-tabs navbar-inverse" role="tablist">
 	    <li role="presentation"><a href="#job" aria-controls="job" role="tab" data-toggle="tab">Apply for Job</a></li>
@@ -148,7 +155,17 @@
 		</div>
 	    
 	  </div>
-</div>
-
+	</div>
+	
+	<% } else if(ht.getAttribute("Type") == "2") {
+	%>
+		<form action="Studentservlet" method="post">
+			<input type="submit" value="log-out" name="logout" style="margin-left:200px" style="margin-top:200px;">
+			<input type="submit" value="View your Information" name="yourInformation" style="margin-rigth:500px;">
+			<input type="submit" value="View Recruiter's Information" name="recpInformation" style="margin-rigth:500px;">
+			<input type="submit" value="View Internship Giving Companies" name="reciInformation" style="margin-right:500px;">
+			<input type="submit" value="View Eligible Companies" name="eligiblecomp" style="margin-right:500px;">
+		</form>
+	<% } %>
 </body>
 </html>

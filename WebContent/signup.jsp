@@ -11,7 +11,7 @@
  	<%@include file="_includes/navbar.jsp" %>
 	<br/><br/><br/><br/>
 	<div class="page-header">
-		<h1>!! Sign Up if you are a recruiter(for a JOB) !!</h1>
+		<h1>!! Sign Up if you are a recruiter !!</h1>
 	</div>
 	<br/><br/>
 	<form method="post" action="SignupServlet">

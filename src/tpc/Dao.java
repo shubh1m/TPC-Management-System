@@ -14,26 +14,35 @@ public class Dao {
 		pstmt = null;
 	}
 	
-	public ArrayList<String> getDetails(String userid){
-		ArrayList<String> al = new ArrayList<String>();
+	public boolean confirmLogin(LoginClass lc){
+		boolean flag = false;
 		try{
-			String str = "SELECT * FROM signup WHERE RecruiterID = ?";
+			String str = "SELECT * FROM login";
 			pstmt = c.prepareStatement(str);
-			pstmt.setString(1, "userid");
-			pstmt.executeUpdate();
 			ResultSet rs = pstmt.executeQuery(str);
 			
-			al.add(rs.getString("Job_Name"));
-			al.add(rs.getString("RecruiterID"));
-			al.add(rs.getString("EmailID"));
-			al.add(rs.getString("Contact"));
-			al.add(rs.getString("Password"));
-			al.add(rs.getInt("Type") + "");
+			while(rs.next()){
+				String uid = rs.getString("UserID");
+				String passwd = rs.getString("Password");
+				String tp = rs.getString("Type");
+				
+				if(uid.equals(lc.getUsername()) && passwd.equals(lc.getPassword()) && tp.equals(lc.getType())){
+					System.out.println("Congratulations " + uid + "!! You are logged in.");
+					flag = true;
+					break;
+				}
+			}
+			if(flag == false){
+				System.out.println("Wrong username or password.");
+			}
+			rs.close();
+			pstmt.close();
+			c.close();
 		}
 		catch (Exception e) {
             e.printStackTrace();
         }
-		return al;
+		return flag;
 	}
 	
 	public void updateName(String userid, String name){
@@ -105,4 +114,70 @@ public class Dao {
             e.printStackTrace();
         }
 	}
+	
+	public ArrayList<ForJob> getAllRecruiter() throws SQLException{
+		Statement stmt = c.createStatement();
+		ResultSet rs = stmt.executeQuery("select name,email,phone,baseSalary,minCPI,branchPreffered,dateOfVisit from recruiter join forjob on recruiter.userid= forjob.userid");
+		ArrayList<ForJob> rec = new ArrayList<ForJob>();
+		while(rs.next()){
+			ForJob f = new ForJob();
+			f.setName(rs.getString("name"));
+			f.setEmail(rs.getString("email"));
+			f.setPhone(rs.getString("phone"));
+			f.setBaseSalary(rs.getFloat("baseSalary"));
+			f.setMinCPI(rs.getFloat("minCPI"));
+			f.setBranchPrefferd(rs.getString("branchPreffered"));
+			f.setDateOfVisit(rs.getString("dateOfVisit"));
+			rec.add(f);
+		}
+		return rec;
+	 }
+	
+	public ArrayList<String> getDetails(String userid){
+		ArrayList<String> al = new ArrayList<String>();
+		try{
+			String str = "SELECT * FROM signup WHERE RecruiterID = ?";
+			pstmt = c.prepareStatement(str);
+			pstmt.setString(1, "userid");
+			pstmt.executeUpdate();
+			ResultSet rs = pstmt.executeQuery(str);
+			
+			al.add(rs.getString("Job_Name"));
+			al.add(rs.getString("RecruiterID"));
+			al.add(rs.getString("EmailID"));
+			al.add(rs.getString("Contact"));
+			al.add(rs.getString("Password"));
+			al.add(rs.getInt("Type") + "");
+		}
+		catch (Exception e) {
+            e.printStackTrace();
+        }
+		return al;
+	}
+	
+	 void getAlldata(String username){
+			Connect co = new Connect();
+			Connection c = co.Conn();
+			PreparedStatement pstmt;
+			Student st = new Student();
+			try{
+				String str = "SELECT * FROM STUDENT WHERE rollno = ?";
+				pstmt = c.prepareStatement(str);
+				pstmt.setString(1, username);
+				ResultSet rs = pstmt.executeQuery();				
+				while(rs.next()){
+					st.setFirstName(rs.getString("firstname"));
+					st.setLastName(rs.getString("lastname"));
+					st.setrollNo(rs.getString("rollno"));
+					st.setDateOfBirth(rs.getString("dateofbirth"));
+					st.setbranch(rs.getString("branch"));
+					st.setCGPA(rs.getDouble("cgpa"));
+					st.setemailId(rs.getString("email"));
+					st.setpassword(rs.getString("password"));
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+	 }
 }

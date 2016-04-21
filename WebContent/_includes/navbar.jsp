@@ -9,7 +9,7 @@
 	          	<li><a href="about_us.jsp">About Us</a></li>
 	          	<li><a href="life.jsp">Life @LNMIIT</a></li>
 	          	<li><a href="contact.jsp">Contact</a></li>
-	            <% if(session.getAttribute("RecruiterID") == null){ %>
+	            <% if(session.getAttribute("UserID") == null){ %>
 		            <li class="nav navbar-nav navbar-right">
 		         	   	<ul class="nav navbar-nav navbar-right">
 							<li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -20,7 +20,7 @@
 					<li><a href="my_account.jsp">My Account</a></li>
 	            	<li><a href="logout.jsp">Log Out</a></li>
 					<p class="navbar-text navbar-right">Signed in as <a href="my_account.jsp" class="navbar-link"><strong>
-						<% out.print(session.getAttribute("RecruiterID")); %>
+						<% out.print(session.getAttribute("UserID")); %>
 					</strong></a></p>
 	           	<% } %>
 	     	</ul>

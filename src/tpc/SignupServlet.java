@@ -37,9 +37,7 @@ public class SignupServlet extends HttpServlet {
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('Password does not match. Enter your credentials again')");
 			out.println("</script>");
-			response.setHeader("Refresh", "0.01; URL=http://localhost:8080/TPC/signup.jsp");
-		//	String redirectURL = "./signup.jsp";
-		//	response.sendRedirect(redirectURL);
+			response.sendRedirect(request.getContextPath() + "/signup.jsp");
 		}
 	}
 }
