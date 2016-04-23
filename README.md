@@ -1,2 +1,2 @@
-##Online Training and Placement Cell Management System  
+##Web-based Training and Placement Cell Management System  
 
