@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.*" %>
 <%@ page import="java.io.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="tpc.Connect" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -153,7 +156,7 @@
 	    </div>
 	    
 	    <div role="tabpanel" class="tab-pane" id="view">
-			<% %>
+			<%@include file="showdetails.jsp" %>
 		</div>
 	    
 	  </div>
@@ -166,10 +169,12 @@
 			<input type="submit" value="View Companies for Job" name="recjInformation">
 			<input type="submit" value="View Companies for Internship" name="reciInformation">
 			<input type="submit" value="View Eligible Companies" name="eligiblecomp">
-			<input type="submit" value="log-out" name="logout">
+		<!-- 	<input type="submit" value="log-out" name="logout">   -->
 		</form>
 		
 	<% } %>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<%@include file="_includes/footer.jsp" %>
 </body>
 </html>
 

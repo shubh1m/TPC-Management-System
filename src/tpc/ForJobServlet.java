@@ -27,7 +27,7 @@ public class ForJobServlet extends HttpServlet {
 		String jdate = request.getParameter("date");
 		
 		HttpSession ht = request.getSession();
-		String userid = ht.getAttribute("RecruiterID").toString();
+		String userid = ht.getAttribute("UserID").toString();
 		ForJob recj = new ForJob();
 		Dao db = new Dao();
 	//	ArrayList<String> al = new ArrayList<String>();
@@ -42,5 +42,6 @@ public class ForJobServlet extends HttpServlet {
 		recj.setBranchPrefferd(jbranch);
 		recj.setDateOfVisit(jdate);
 		db.addJob(recj);
+		response.sendRedirect(request.getContextPath() + "/my_account.jsp");
 	}
 }

@@ -28,14 +28,14 @@ public class ForInternServlet extends HttpServlet {
 		String link = request.getParameter("link");
 		
 		HttpSession ht = request.getSession();
-		String userid = ht.getAttribute("RecruiterID").toString();
+		String userid = ht.getAttribute("UserID").toString();
 		ForIntern reci = new ForIntern();
 		reci.setUserID(userid);
 		reci.setDomain(domain);
 		reci.setStipend(stipend);
 		reci.setYearPreffered(year);
 		reci.setLinkToWebsite(link);
-		
+		//System.out.println("ftygh"+domain);
 		Dao db = new Dao();
 		db.addIntern(reci);
 		// Kaam nhi kar raha

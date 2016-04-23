@@ -9,6 +9,7 @@
 	          	<li><a href="about_us.jsp">About Us</a></li>
 	          	<li><a href="life.jsp">Life @LNMIIT</a></li>
 	          	<li><a href="contact.jsp">Contact</a></li>
+	          	<li><a href="stats.jsp">Placement Stats</a></li>
 	            <% if(session.getAttribute("UserID") == null){ %>
 		            <li class="nav navbar-nav navbar-right">
 		         	   	<ul class="nav navbar-nav navbar-right">

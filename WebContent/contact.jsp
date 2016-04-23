@@ -10,10 +10,12 @@
 <body>
  	<%@include file="_includes/navbar.jsp" %>
 	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane fade" id="contact">
-		<br/><br/><br/>
+		<div role="tabpanel" class="tab-pane" id="contact">
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 			Contact details: xxxxx-xxxxx
 		</div>
 	</div>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<%@include file="_includes/footer.jsp" %>
 </body>
 </html>

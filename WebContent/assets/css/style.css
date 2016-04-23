@@ -218,7 +218,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .jumbotron{
-    background-image: url("assets/images/back.jpg");
+    background-image: url('assets/images/back.jpg');
     color: #ffffff;
     background-attachment: fixed;
 }
@@ -284,7 +284,7 @@ section.gray h3{
 }
 
 section.about{
-    background: url(assets/images/bg.jpg);
+    background: url(assets/images/name.jpg);
     min-height: 400px;
     position: relative;
 }

@@ -31,6 +31,8 @@
 			organised, handled and coordinated completely by the
 			students of the institute. Faculty and management of the
 			institute is always with the students of the institute
-
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<%@include file="_includes/footer.jsp" %>
 </body>
 </html>

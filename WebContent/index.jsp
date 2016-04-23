@@ -12,7 +12,7 @@
 	<br/><br/>
 	<%@include file="_includes/navbar.jsp" %>
 	
-	<div class="jumbotron" id="home">
+	<div class="jumbotron" id="home" background-image: url("assets/images/back.jpg")>
     	Training and Placement Cell, The LNMIIT
     	<br/>
     	<div class="container">
