@@ -4,19 +4,19 @@ import java.sql.*;
 import java.util.*;
 
 public class Dao {
-	Connect co;
-	Connection c;
-	PreparedStatement pstmt;
-	PreparedStatement pst;
-	Dao(){
+	private Connect co;
+	private Connection c;
+	private PreparedStatement pstmt;
+	private PreparedStatement pst;
+
+    Dao(){
 		Connect co = new Connect();
 		c = co.Conn();
 		pstmt = null;
 	}
-	
+
 	public boolean confirmLogin(LoginClass lc){
 		boolean flag = false;
-		//System.out.println( "hey "+ lc.getUsername() + lc.getPassword() + lc.getType());
 		try{
 			String str = "SELECT * FROM login";
 			pstmt = c.prepareStatement(str);
@@ -25,7 +25,6 @@ public class Dao {
 				String uid = rs.getString("UserID");
 				String passwd = rs.getString("Password");
 				String tp = rs.getString("Type");
-			//	System.out.println(uid + passwd + tp);
 				if(uid.equals(lc.getUsername()) && passwd.equals(lc.getPassword()) && tp.equals(lc.getType())){
 					System.out.println("Congratulations " + uid + "!! You are logged in.");
 					flag = true;
@@ -44,7 +43,7 @@ public class Dao {
         }
 		return flag;
 	}
-	
+
 	public void updateName(String userid, String name){
 		try{
 			String str = "UPDATE signup SET JOB_NAME = ? where RecruiterID = ?";
@@ -57,7 +56,7 @@ public class Dao {
             e.printStackTrace();
         }
 	}
-	
+
 	public void addJob(ForJob recj){
 		try{
 			String str = "INSERT INTO For_Job values(?, ?, ?, ?, ?)";
@@ -74,7 +73,7 @@ public class Dao {
             e.printStackTrace();
         }
 	}
-	
+
 	public void addIntern(ForIntern reci){
 		try{
 			String str = "INSERT INTO For_Intern values(?, ?, ?, ?, ?)";
@@ -91,7 +90,7 @@ public class Dao {
             e.printStackTrace();
         }
 	}
-	
+
 	public void editDetails(Recruiter rec){
 		try{
 			String str = "UPDATE signup SET Job_Name = ? , EmailID = ? , Contact = ? , Password = ? WHERE RecruiterID = ?";
@@ -114,7 +113,7 @@ public class Dao {
             e.printStackTrace();
         }
 	}
-	
+
 	public ArrayList<ForJob> getAllRecruiter() throws SQLException{
 		Statement stmt = c.createStatement();
 		ResultSet rs = stmt.executeQuery("select name,email,phone,baseSalary,minCPI,branchPreffered,dateOfVisit from recruiter join forjob on recruiter.userid= forjob.userid");
@@ -132,7 +131,7 @@ public class Dao {
 		}
 		return rec;
 	 }
-	
+
 	public ArrayList<String> getDetails(String userid){
 		ArrayList<String> al = new ArrayList<String>();
 		try{
@@ -141,7 +140,7 @@ public class Dao {
 			pstmt.setString(1, "userid");
 			pstmt.executeUpdate();
 			ResultSet rs = pstmt.executeQuery(str);
-			
+
 			al.add(rs.getString("Job_Name"));
 			al.add(rs.getString("RecruiterID"));
 			al.add(rs.getString("EmailID"));
@@ -154,8 +153,8 @@ public class Dao {
         }
 		return al;
 	}
-	
-	 Student getAlldata(String username){
+
+	public Student getAlldata(String username){
 			Connect co = new Connect();
 			Connection c = co.Conn();
 			PreparedStatement pstmt;
